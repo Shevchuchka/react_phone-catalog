@@ -8,16 +8,16 @@ type Props = {
 };
 
 export const ItemsIconCounter: React.FC<Props> = ({ icon }) => {
-  const { addedProducts } = useContext(CartContext);
+  const { itemsQuantity } = useContext(CartContext);
   const { favProducts } = useContext(FavouritesContext);
 
-  const productsType = icon === 'favourites' ? favProducts : addedProducts;
+  const itemsNum = icon === 'favourites' ? favProducts.length : itemsQuantity;
 
   return (
     <div className={styles.iconInnerContainer}>
-      {productsType.length > 0 && (
+      {itemsNum > 0 && (
         <span className={styles.counterContainer}>
-          <span className={styles.counter}>{productsType.length}</span>
+          <span className={styles.counter}>{itemsNum}</span>
         </span>
       )}
 

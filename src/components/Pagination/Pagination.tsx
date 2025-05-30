@@ -1,8 +1,8 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import styles from './Pagination.module.scss';
 import classNames from 'classnames';
 import { ArrowIcon } from '../Icons/Arrow';
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 
 import 'swiper/css';
@@ -21,7 +21,7 @@ export const Pagination: React.FC<Props> = ({
   currentPage,
   setCurrentPage,
 }) => {
-  const swiper = useSwiper();
+  const [activePage, setActivePage] = useState(currentPage);
 
   const prevDisabled = currentPage === 1;
   const nextDisabled = currentPage === pages;
@@ -52,13 +52,17 @@ export const Pagination: React.FC<Props> = ({
     setCurrentPage(page);
   };
 
+  useEffect(() => {
+    setActivePage(currentPage);
+  }, [currentPage]);
+
   return (
     <div className={styles.pagination}>
       <button
         className="toggle button backBtn prevPage"
         aria-label="Previous page"
         disabled={currentPage === 1}
-        onClick={() => swiper.slidePrev()}
+        onClick={() => handlePageChange(activePage - 1)}
       >
         <span className="icon">
           <ArrowIcon disabled={prevDisabled} />
@@ -99,7 +103,7 @@ export const Pagination: React.FC<Props> = ({
         className="toggle button nextPage"
         aria-label="Next page"
         disabled={currentPage === pages}
-        onClick={() => swiper.slidePrev()}
+        onClick={() => handlePageChange(activePage + 1)}
       >
         <span className="icon">
           <ArrowIcon disabled={nextDisabled} />

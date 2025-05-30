@@ -28,6 +28,7 @@ export const Products: React.FC<Props> = ({ category, categoryItems }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [failedQuery, setFailedQuery] = useState(false);
+  const [currentItems, setCurrentItems] = useState(categoryItems);
 
   const currentPage = +(searchParams.get('page') || 1);
   const itemsPerPage = (searchParams.get('perPage') || 'All') as ItemsPerPage;
@@ -59,14 +60,6 @@ export const Products: React.FC<Props> = ({ category, categoryItems }) => {
     setSearchWith({ perPage: itemsValue === 'All' ? null : itemsValue });
   };
 
-  const pages = useMemo(() => {
-    if (itemsPerPage === 'All') {
-      return 1;
-    }
-
-    return Math.ceil(categoryItems.length / +itemsPerPage);
-  }, [categoryItems.length, itemsPerPage]);
-
   const normalizeValue = (value: string) => {
     return value.toLowerCase();
   };
@@ -77,7 +70,7 @@ export const Products: React.FC<Props> = ({ category, categoryItems }) => {
     );
   }, [categoryItems, query]);
 
-  const currentItems = useMemo(() => {
+  const currentPageItems = useMemo(() => {
     setFailedQuery(false);
 
     let sortedList = sortFunction(sortBy, categoryItems);
@@ -101,12 +94,23 @@ export const Products: React.FC<Props> = ({ category, categoryItems }) => {
     const lastItem = currentPage * +itemsPerPage;
     const firstItem = lastItem - +itemsPerPage;
 
+    setCurrentItems(sortedList);
+
     return [...sortedList].slice(firstItem, lastItem);
-  }, [categoryItems, currentPage, filterItems, itemsPerPage, query, sortBy]);
+  }, [currentPage, itemsPerPage, query, sortBy, categoryItems]);
+
+  const pages = useMemo(() => {
+    if (itemsPerPage === 'All') {
+      return 1;
+    }
+
+    return Math.ceil(currentItems.length / +itemsPerPage);
+  }, [currentItems.length, itemsPerPage]);
 
   useEffect(() => {
+    setCurrentItems(categoryItems);
     currentPageChange(1);
-  }, [itemsPerPage]);
+  }, [categoryItems]);
 
   return (
     <div className={styles.products}>
@@ -154,12 +158,12 @@ export const Products: React.FC<Props> = ({ category, categoryItems }) => {
           />
         )}
 
-        {!failedQuery && currentItems.length > 0 && (
-          <ProductList itemsList={currentItems} />
+        {!failedQuery && currentPageItems.length > 0 && (
+          <ProductList itemsList={currentPageItems} />
         )}
       </div>
 
-      {pages > 1 && currentItems.length > 0 && (
+      {pages > 1 && currentPageItems.length > 0 && (
         <Pagination
           pages={pages}
           currentPage={currentPage}

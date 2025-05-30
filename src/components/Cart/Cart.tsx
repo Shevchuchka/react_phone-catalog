@@ -7,7 +7,8 @@ import { CartContext } from '../Contexts/CartContext';
 import { NotFound } from '../NotFound';
 
 export const Cart = () => {
-  const { addedProducts, setAddedProducts } = useContext(CartContext);
+  const { addedProducts, setAddedProducts, itemsQuantity } =
+    useContext(CartContext);
 
   const [modal, setModal] = useState(false);
 
@@ -18,9 +19,9 @@ export const Cart = () => {
     );
   }, [addedProducts]);
 
-  const itemsQuantity = useMemo(() => {
-    return addedProducts.reduce((acc, item) => acc + item.quantity, 0);
-  }, [addedProducts]);
+  // const itemsQuantity = useMemo(() => {
+  //   return addedProducts.reduce((acc, item) => acc + item.quantity, 0);
+  // }, [addedProducts]);
 
   const activeModal = () => {
     setModal(!modal);

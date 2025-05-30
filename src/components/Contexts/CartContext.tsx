@@ -1,9 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { ProductContext } from './ProductsContext';
 import { AddedProductType } from '../../types/AddedProduct';
 
 type CartContextProps = {
   addedProducts: AddedProductType[];
+  itemsQuantity: number;
   setAddedProducts: React.Dispatch<React.SetStateAction<AddedProductType[]>>;
   addCartProduct: (id: string) => void;
   deleteCartProduct: (id: number) => void;
@@ -12,6 +13,7 @@ type CartContextProps = {
 
 export const CartContext = React.createContext<CartContextProps>({
   addedProducts: [],
+  itemsQuantity: 0,
   setAddedProducts: () => {},
   addCartProduct: () => {},
   deleteCartProduct: () => {},
@@ -69,10 +71,15 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
     );
   };
 
+  const itemsQuantity = useMemo(() => {
+    return addedProducts.reduce((acc, item) => acc + item.quantity, 0);
+  }, [addedProducts]);
+
   return (
     <CartContext.Provider
       value={{
         addedProducts,
+        itemsQuantity,
         setAddedProducts,
         addCartProduct,
         deleteCartProduct,

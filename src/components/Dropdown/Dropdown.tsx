@@ -38,6 +38,7 @@ export const Dropdown = <T extends string>({
           type="text"
           value={`${activeOption}`}
           className={styles.dropdownInput}
+          readOnly
         />
         <button
           className={classNames({
