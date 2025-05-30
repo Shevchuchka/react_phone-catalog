@@ -154,6 +154,7 @@ export const ItemDetails: React.FC<Props> = ({ item }) => {
                       className={classNames('colorToggle button', {
                         'colorToggle-active': currentColor === colorName,
                       })}
+                      aria-label="Set color"
                       key={color}
                       onClick={() => changeColor(currentColor)}
                     >
@@ -175,6 +176,7 @@ export const ItemDetails: React.FC<Props> = ({ item }) => {
                       className={classNames('capacityToggle', {
                         'capacityToggle-active': currentCapacity === capacity,
                       })}
+                      aria-label="Set capasity"
                       key={currentCapacity}
                       onClick={() => changeCapacity(currentCapacity)}
                     >

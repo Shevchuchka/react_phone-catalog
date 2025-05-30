@@ -22,6 +22,7 @@ export const PicturesSlider = () => {
       <div className={styles.slider}>
         <div
           className={`backBtn button ${styles.sliderButton} slider-prev`}
+          aria-label="Previous slider"
           onClick={() => swiper.slidePrev()}
         >
           <span className="icon">
@@ -65,6 +66,7 @@ export const PicturesSlider = () => {
 
         <div
           className={`${styles.sliderButton} button slider-next`}
+          aria-label="Next slider"
           onClick={() => swiper.slideNext()}
         >
           <span className="icon">

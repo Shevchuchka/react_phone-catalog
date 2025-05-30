@@ -20,6 +20,7 @@ export const FavouritesButton: React.FC<Props> = ({ itemId }) => {
   return (
     <button
       className="button favBtn"
+      aria-label="Favourites"
       onClick={() => addFavouriteProduct(itemId)}
     >
       <span

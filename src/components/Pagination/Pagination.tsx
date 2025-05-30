@@ -56,6 +56,7 @@ export const Pagination: React.FC<Props> = ({
     <div className={styles.pagination}>
       <button
         className="toggle button backBtn prevPage"
+        aria-label="Previous page"
         disabled={currentPage === 1}
         onClick={() => swiper.slidePrev()}
       >
@@ -84,6 +85,7 @@ export const Pagination: React.FC<Props> = ({
                 className={classNames('button pageToggle', {
                   'pageToggle-active': currentPage === number,
                 })}
+                aria-label="Set page"
                 onClick={() => handlePageChange(number)}
               >
                 <span className={styles.pageButton}>{number}</span>
@@ -95,6 +97,7 @@ export const Pagination: React.FC<Props> = ({
 
       <button
         className="toggle button nextPage"
+        aria-label="Next page"
         disabled={currentPage === pages}
         onClick={() => swiper.slidePrev()}
       >

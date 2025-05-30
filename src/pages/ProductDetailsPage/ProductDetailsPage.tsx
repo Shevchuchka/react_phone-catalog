@@ -55,7 +55,11 @@ export const ProductDetailsPage = () => {
             <span className="icon arrow" />
           </div>
 
-          <button className="body-text grayText" onClick={handleBack}>
+          <button
+            className="body-text grayText strokeBtnText"
+            aria-label="Back page"
+            onClick={handleBack}
+          >
             Back
           </button>
         </div>

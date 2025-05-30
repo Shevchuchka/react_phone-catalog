@@ -30,6 +30,7 @@ export const PrimaryButton: React.FC<Props> = ({ itemId }) => {
       className={classNames('button primaryBtn', {
         'primaryBtn-active': active,
       })}
+      aria-label="Primary"
       onClick={handleAdd}
     >
       <span className="buttonText">{active ? 'Added' : 'Add to cart'}</span>

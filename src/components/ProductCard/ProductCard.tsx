@@ -31,6 +31,7 @@ export const ProductCard: React.FC<Props> = ({ productItem }) => {
           to={`/${category}/${itemId}`}
           replace
           className={styles.photoContainer}
+          aria-label="Go to product page"
         >
           <img src={`${image}`} alt={name} className={styles.productPhoto} />
         </Link>
@@ -39,6 +40,7 @@ export const ProductCard: React.FC<Props> = ({ productItem }) => {
           <Link
             to={`/${category}/${itemId}`}
             className={`${styles.productTitle} body-text-small`}
+            aria-label="Go to product page"
           >
             {name}
           </Link>

@@ -43,11 +43,12 @@ export const Footer = () => {
 
         <div
           className={`buttons ${styles.footerButtons}`}
+          aria-label="To Top"
           onClick={handleScrollUp}
         >
           <span className="body-text grayText">Back to top</span>
 
-          <button className="button toggle upBtn">
+          <button className="button toTop upBtn" aria-label="To Top Arrow">
             <span className="icon">
               <ArrowIcon />
             </span>

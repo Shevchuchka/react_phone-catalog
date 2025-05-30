@@ -9,7 +9,11 @@ export const ErrorMessage = () => {
     <div className={styles.error}>
       <h3 className={styles.errormessage}>Something went wrong...</h3>
 
-      <button className={`${styles.errorBtn} button`} onClick={reload}>
+      <button
+        className={`${styles.errorBtn} button`}
+        aria-label="Reload"
+        onClick={reload}
+      >
         <span className={`${styles.errorBtnText} buttonText`}>Reload</span>
       </button>
     </div>

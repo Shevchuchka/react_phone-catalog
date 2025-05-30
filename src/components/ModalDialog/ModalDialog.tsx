@@ -13,10 +13,18 @@ export const ModalDialog: React.FC<Props> = ({ cancel, confirm }) => {
           Checkout is not implemented yet. <br /> Do you want to clear the Cart?
         </h3>
         <div className={`buttons ${styles.modalButtons}`}>
-          <button className={`button ${styles.modalBtn}`} onClick={cancel}>
+          <button
+            className={`button ${styles.modalBtn}`}
+            aria-label="Cancel"
+            onClick={cancel}
+          >
             <span className="buttonText">Cancel</span>
           </button>
-          <button className={`button ${styles.modalBtn}`} onClick={confirm}>
+          <button
+            className={`button ${styles.modalBtn}`}
+            aria-label="Confirm"
+            onClick={confirm}
+          >
             <span className="buttonText">Confirm</span>
           </button>
         </div>

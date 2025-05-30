@@ -16,12 +16,16 @@ export const Breadcrumbs: React.FC<Props> = ({ page, productName }) => {
 
   return (
     <div className={styles.breadCrumbs}>
-      <Link to="/" className="icon home"></Link>
+      <Link to="/" className="icon home" aria-label="Go home"></Link>
 
       <div className={styles.way}>
         <span className="icon arrow" />
         {productName ? (
-          <Link to={`/${page}`} className="title-small-gray strokeBtnText">
+          <Link
+            to={`/${page}`}
+            className="title-small-gray strokeBtnText"
+            aria-label={`Go to ${pageName}`}
+          >
             {pageName}
           </Link>
         ) : (

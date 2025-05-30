@@ -38,6 +38,7 @@ export const Category: React.FC<Props> = ({ src }) => {
           <Link
             to={src}
             className={`${styles.photoContainer} ${styles[`${currentCategory.name}Container`]}`}
+            aria-label={`Go to ${currentCategory}`}
           >
             <div
               className={`${styles.photo} ${styles.phonesPhoto} ${styles[`${currentCategory.name}Photo`]}`}
@@ -45,7 +46,7 @@ export const Category: React.FC<Props> = ({ src }) => {
           </Link>
 
           <div className={styles.categoryDescription}>
-            <Link to={src}>
+            <Link to={src} aria-label={`Go to ${currentCategory}`}>
               <h3>{currentCategory.pageName}</h3>
             </Link>
 

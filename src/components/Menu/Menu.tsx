@@ -35,6 +35,7 @@ export const Menu: React.FC<Props> = ({
           className={({ isActive }) =>
             classNames([styles.menuIcon], getLinkClass({ isActive }, styles))
           }
+          aria-label="Go to favourites"
         >
           <div className="counter">
             <ItemsIconCounter icon={'favourites'} />
@@ -49,6 +50,7 @@ export const Menu: React.FC<Props> = ({
               getLinkClass({ isActive }, styles),
             )
           }
+          aria-label="Go to cart"
         >
           <div className="counter">
             <ItemsIconCounter icon={'cart'} />

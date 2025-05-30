@@ -77,7 +77,11 @@ export const Header: React.FC<Props> = ({
       <div className={styles.topContainer}>
         <div className={styles.headerContent}>
           <div className={styles.headerLogo}>
-            <Link to="/" className="logo logo--header"></Link>
+            <Link
+              to="/"
+              className="logo logo--header"
+              aria-label="Go home"
+            ></Link>
           </div>
           <div className={styles.headerNav}>
             <Navigation navPosition={NavPosition.header} />
@@ -108,6 +112,7 @@ export const Header: React.FC<Props> = ({
             className={({ isActive }) =>
               classNames(getLinkClass ? getLinkClass({ isActive }, styles) : '')
             }
+            aria-label="Go to favourites"
           >
             <div className={styles.headerIcon}>
               <div className="counter">
@@ -120,6 +125,7 @@ export const Header: React.FC<Props> = ({
             className={({ isActive }) =>
               classNames(getLinkClass ? getLinkClass({ isActive }, styles) : '')
             }
+            aria-label="Go to cart"
           >
             <div className={styles.headerIcon}>
               <div className="counter">
@@ -132,6 +138,7 @@ export const Header: React.FC<Props> = ({
             <div className={styles.headerClose}>
               <button
                 className="icon close"
+                aria-label="Close"
                 onClick={() => {
                   menuPage(false);
                 }}
@@ -139,7 +146,11 @@ export const Header: React.FC<Props> = ({
             </div>
           ) : (
             <div className={styles.headerBurgerMenu}>
-              <button className="icon menu" onClick={() => menuPage(true)} />
+              <button
+                className="icon menu"
+                aria-label="Menu"
+                onClick={() => menuPage(true)}
+              />
             </div>
           )}
         </div>

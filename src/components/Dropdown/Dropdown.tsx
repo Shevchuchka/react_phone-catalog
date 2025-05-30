@@ -44,6 +44,7 @@ export const Dropdown = <T extends string>({
             downBtn: !isOpen,
             upBtn: isOpen,
           })}
+          aria-label="Open or Close"
           onClick={() => setIsOpen(!isOpen)}
         >
           <span className="icon arrow" />

@@ -27,6 +27,7 @@ export const Navigation: React.FC<Props> = ({ navPosition }) => {
             className={({ isActive }) =>
               classNames(styles[itemClassName], getLinkClass({ isActive }))
             }
+            aria-label="Go home"
           >
             {link}
           </NavLink>

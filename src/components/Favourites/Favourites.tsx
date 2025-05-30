@@ -3,6 +3,7 @@ import { Breadcrumbs } from '../Breadcrumbs';
 import { ProductList } from '../ProductList';
 import styles from './Favourites.module.scss';
 import { FavouritesContext } from '../Contexts/FavouritesContext';
+import { NotFound } from '../NotFound';
 
 export const Favourites: React.FC = () => {
   const { favProducts } = useContext(FavouritesContext);
@@ -18,7 +19,14 @@ export const Favourites: React.FC = () => {
         <p className="body-text-small grayText">{`${itemsNum}`} items</p>
       </div>
 
-      {itemsNum > 0 && <ProductList itemsList={favProducts} />}
+      {itemsNum > 0 ? (
+        <ProductList itemsList={favProducts} />
+      ) : (
+        <NotFound
+          title={'Favourites list is empty'}
+          imgSrc={'favourites-is-empty.png'}
+        />
+      )}
     </div>
   );
 };

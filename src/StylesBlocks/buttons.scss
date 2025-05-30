@@ -1,3 +1,13 @@
+// toTop
+.toTop {
+  width: 32px;
+  height: 32px;
+
+  border: $gray-icon-border;
+
+  transition: $border-hover-transition;
+}
+
 .buttons {
   @include flex-row-center;
 
@@ -8,10 +18,14 @@
   transition:
     color $hover-transition,
     border $hover-transition;
-}
 
-.buttons:hover .grayText {
-  color: $primary;
+  &:hover .grayText {
+    color: $primary;
+  }
+
+  &:hover .toTop {
+    border: 1px solid $primary;
+  }
 }
 
 .button {

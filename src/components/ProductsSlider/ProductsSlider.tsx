@@ -84,6 +84,7 @@ export const ProductsSlider: React.FC<Props> = ({ itemsType, title }) => {
         <div className={styles.titleButtons}>
           <button
             className="button toggle backBtn prev"
+            aria-label="Previous slide"
             onClick={() => swiper.slidePrev()}
             disabled={prevDisabled}
           >
@@ -93,6 +94,7 @@ export const ProductsSlider: React.FC<Props> = ({ itemsType, title }) => {
           </button>
           <button
             className="button toggle next"
+            aria-label="Next slide"
             onClick={() => swiper.slideNext()}
             disabled={nextDisabled}
           >

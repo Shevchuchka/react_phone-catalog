@@ -40,7 +40,7 @@ export const Cart = () => {
             <span className="icon arrow" />
           </div>
 
-          <Link to=".." className="body-text grayText">
+          <Link to=".." className="body-text grayText" aria-label="Back">
             Back
           </Link>
         </div>
@@ -69,6 +69,7 @@ export const Cart = () => {
 
             <button
               className={`${styles.sheckoutButton} button primaryBtn`}
+              aria-label="Checkout"
               onClick={activeModal}
             >
               <span className="buttonText">Checkout</span>

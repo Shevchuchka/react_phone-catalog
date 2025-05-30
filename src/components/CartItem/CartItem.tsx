@@ -43,6 +43,7 @@ export const CartItem: React.FC<Props> = ({ item }) => {
       <div className={styles.item}>
         <button
           className="icon close"
+          aria-label="Close"
           onClick={() => deleteCartProduct(item.id)}
         />
 
@@ -63,13 +64,18 @@ export const CartItem: React.FC<Props> = ({ item }) => {
         <div className={styles.itemsNumToggle}>
           <button
             className="button toggle"
+            aria-label="Decrease"
             disabled={item.quantity === 1}
             onClick={decrease}
           >
             <span className="icon minus"></span>
           </button>
           <span className="body-text-small">{item.quantity}</span>
-          <button className="button toggle" onClick={increase}>
+          <button
+            className="button toggle"
+            aria-label="Increase"
+            onClick={increase}
+          >
             <span className="icon plus"></span>
           </button>
         </div>
