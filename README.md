@@ -6,9 +6,9 @@ Nice Gadgets Store is an online platform designed to provide customers with the 
 With a focus on delivering a seamless shopping experience, the website showcases high-quality images, detailed product descriptions, and intuitive navigation. Users can effortlessly add items to their cart or favourites list.
 Additionally, Nice Gadgets Store highlights trending technology, promotional deals, and top-selling products to help customers make informed decisions. The platform combines convenience and innovation to ensure a modern, efficient, and engaging online shopping experience.
 
-Live Demo: https://www.figma.com/file/xMK2Dy0mfBbJJSNctmOuLW/Phone-catalog-(V2)-Rounded-Style-1?node-id=0%3A1
+Design Mock-up: https://www.figma.com/file/xMK2Dy0mfBbJJSNctmOuLW/Phone-catalog-(V2)-Rounded-Style-1?node-id=0%3A1
 
-Design Mock-up: https://shevchuchka.github.io/react_phone-catalog/
+Live Demo: https://shevchuchka.github.io/react_phone-catalog/
 
 Technologies Used:
 
